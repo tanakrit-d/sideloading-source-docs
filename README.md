@@ -1,3 +1,11 @@
+[
+    <img
+        src="repo/images/readme/readme_header.webp"
+        title=""
+        alt="README Header"
+    />
+](repo/images/headers/source_header.webp)
+
 # AltStore/Feather/SideStore Source and Signing
 
 This repo should contain all the necessary information and files to get you started.
@@ -98,7 +106,7 @@ You can improve the visual look of a repo by including the following assets, and
         src="repo/images/icons/anymex.webp"
         width=72px
         title=""
-        alt=""
+        alt="Icon"
     />
 ](repo/images/icons/anymex.webp)
 
@@ -108,7 +116,7 @@ You can improve the visual look of a repo by including the following assets, and
         src="repo/images/headers/source_header.webp"
         width=250px
         title=""
-        alt=""
+        alt="Header"
     />
 ](repo/images/headers/source_header.webp)
 
@@ -118,7 +126,7 @@ You can improve the visual look of a repo by including the following assets, and
         src="repo/images/screenshots/image_0.webp"
         width=250px
         title=""
-        alt=""
+        alt="Screenshot"
     />
 ](repo/images/screenshots/image_0.webp)
 
@@ -128,7 +136,7 @@ You can improve the visual look of a repo by including the following assets, and
         src="repo/images/news/update.webp"
         width=250px
         title=""
-        alt=""
+        alt="News"
     />
 ](repo/images/news/update.webp)
 
