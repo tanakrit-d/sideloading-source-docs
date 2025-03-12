@@ -63,7 +63,7 @@ There are however, a few things to keep in mind which we'll explore:
 AltStore will check if the version declared in the source matches the value inside the app's `Info.plist` file.
 
 Although AltStore accepts non-conforming values in `version` (such as `15.2.3-hotfix`), because Apple enforces `[major].[minor].[patch]` these will never reconcile if an app is downloaded from a source.  
-This does not apply to apps which is loaded directly as an `.ipa`, or with Feather etc.
+This does not apply to apps which are loaded directly as an `.ipa`, or with Feather etc.
 
 See:
 
@@ -90,7 +90,7 @@ See:
 
 AltStore enforces a declared vs. discovered entitlements check if an app is downloaded from a source.  
 If you are unsure which entitlements are required, you can install the app from source and see which ones AltStore discovers.  
-This does not apply to apps which is loaded directly as an `.ipa`, or with Feather etc.
+This does not apply to apps which are loaded directly as an `.ipa`, or with Feather etc.
 
 See:
 
