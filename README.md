@@ -156,8 +156,8 @@ You would then prefix the links with `https://intradeus.github.io/http-protocol-
 
 If you would like to provide buttons or links users can use to open the source/repo directly in app, you'll need to add the correct schema to the front:
 
-`altstore://source?url=https://raw.githubusercontent.com/tanakrit-d/my-app/refs/heads/main/repo/source.json`
-`feather://source/https://raw.githubusercontent.com/tanakrit-d/my-app/refs/heads/main/repo/source.json`
+`altstore://source?url=https://raw.githubusercontent.com/tanakrit-d/my-app/refs/heads/main/repo/source.json`  
+`feather://source/https://raw.githubusercontent.com/tanakrit-d/my-app/refs/heads/main/repo/source.json`  
 `sidestore://source?url=https://raw.githubusercontent.com/tanakrit-d/my-app/refs/heads/main/repo/source.json`
 
 ## Signing
