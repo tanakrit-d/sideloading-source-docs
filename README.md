@@ -44,7 +44,7 @@ The script will automatically add new versions to the source, strip tags from ve
 An AltStore/Feather/SideStore compatible source is just a `.json` file that the app can read.  
 Users simply direct the app to the URL in order to add the source.
 
-There are however, a few things to keep in mind which we'll explore:
+There are however a few things to keep in mind which we'll explore:
 
 ### Version
 
