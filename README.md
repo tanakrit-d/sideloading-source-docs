@@ -197,7 +197,7 @@ Signing successful. Proceeding to download.
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 36.4M  100 36.4M    0     0  4507k      0  0:00:08  0:00:08 --:--:-- 5489k
-Download complete: cool-signed.ipa
+Download complete: cool-app-signed.ipa
 ```
 
 ## Project Examples
