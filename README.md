@@ -101,7 +101,7 @@ This does not apply to apps which are loaded directly as an `.ipa`, or with Feat
 
 See:
 
-- [App Permisions](https://faq.altstore.io/developers/make-a-source#app-permissions)
+- [App Permissions](https://faq.altstore.io/developers/make-a-source#app-permissions)
 
 ### Image Assets
 
