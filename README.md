@@ -15,13 +15,20 @@ This repo should contain all the necessary information and files to get you star
 ### Build, Sign, Release, Update Source
 
 Including all of the steps as part of a GitHub workflow action is the most straightforward and integrated solution.  
-I'd recommend looking at [build.yml](.github/workflows/build-example.yml).  
-In this example we:
+I'd recommend looking at the [zsign build.yml](.github/workflows/build-example-zsign.yml) and [ipasign.cc build.yml](.github/workflows/build-example-ipasign.yml) implementations.  
+In these examples we:
 
 - Decode the `.p12` and `.mobileprovison` base64 encoded GitHub secrets to files
-- Sign the `.ipa`
-- Handle signing failures to ensure the `.ipa` is still released
+- Build the `.app`
+- Sign the `Payload`
+  - You can sign the `.ipa` directly if using `ipasign.cc`
+- Archive to `.ipa`
 - Call the sideloading source update workflow
+
+The difference between these two examples is:
+
+- zsign signs the app locally
+- ipasign relies on a webservice
 
 ### Release Polling
 
@@ -172,7 +179,26 @@ For whatever reason however, some apps misbehave when fakesigned and open to a b
 
 If an app is not signed, or improperly signed, AltStore tends to throw an error such as [this one](https://github.com/altstoreio/AltStore/issues/1034). This is quite common with multi-platform projects that are built with Flutter using the `--no-codesign` argument as they were never signed to begin with.
 
-A workaround to this is using a revoked/expired `.p12` and `.mobileprovision`from [https://t.me/AppleP12](https://t.me/AppleP12) alongside a signing service such as [https://sign.ipasign.cc/](https://sign.ipasign.cc/) to give the app a valid signature.
+There are two solutions for this:
+
+### zsign
+
+Using a revoked/expired `.p12` and `.mobileprovision`from [https://t.me/AppleP12](https://t.me/AppleP12) alongside [zsign](https://github.com/zhlynn/zsign) gives the app a valid signature.
+
+I'd recommend viewing the [usage](https://github.com/zhlynn/zsign?tab=readme-ov-file#usage) section to understand which parameters may be of use to you.
+
+To use this as part of the workflow, it's recommended to base64 encode the `.p12` and `.mobileprovision` files and store them as a GitHub secrets.
+
+In the example workflow action, I use it with the following arguments:  
+`./zsign -f -k ./certificate.p12 -p "$P12_PASSWORD" -m ./profile.mobileprovision ./build/ios/iphoneos/Payload/Runner.app`
+
+> [!IMPORTANT]  
+> As of `v0.7` I don't recommend specifying an `-output` argument  
+> This is because (at least on MacOS) there is a bug which causes the archiving of the `.ipa` to run endlessly until the device runs out of disk space
+
+### ipasign.cc
+
+Using a revoked/expired `.p12` and `.mobileprovision`from [https://t.me/AppleP12](https://t.me/AppleP12) alongside a signing service such as [https://sign.ipasign.cc/](https://sign.ipasign.cc/) gives the app a valid signature.
 
 Although ipasign doesn't expose any API endpoints, I have written a [sign-ipa.sh](scripts/sign-ipa.sh) script to interface with the website automatically which allows it to be used as part of a workflow action.
 
@@ -224,4 +250,5 @@ Download complete: cool-app-signed.ipa
 [AltStore - Make a Source](https://faq.altstore.io/developers/make-a-source)  
 [Apple - Entitlements](https://developer.apple.com/documentation/bundleresources/entitlements)  
 [ldid](https://github.com/ProcursusTeam/ldid)  
-[pyzule-rw / cyan](https://github.com/asdfzxcvbn/pyzule-rw)
+[pyzule-rw / cyan](https://github.com/asdfzxcvbn/pyzule-rw)  
+[zsign](https://github.com/zhlynn/zsign)
