@@ -1,0 +1,9 @@
+{
+    "repo_url": "Example-User/Example-App",
+    "json_file": "repo/source.json",
+    "app_id": "com.example.app",
+    "app_name": "Example App",
+    "caption": "Update for Example App now available!",
+    "tint_colour": "71717A",
+    "image_url": "https://raw.githubusercontent.com/Example-User/Example-App/refs/heads/main/repo/images/news/update.webp"
+}
