@@ -48,7 +48,7 @@ The script will automatically add new versions to the source, strip tags from ve
 
 You'll find the values used to populate `news` items in [config.json](repo/config.json]) which are loaded when the script executes.
 
-The initial values in the source (excluding ["versions"] and ["news"]) will need to be manually populated when initially settings this up, as they do not pull from `config.json` and are essentially static.
+The initial values in the source (excluding ["versions"] and ["news"]) will need to be manually populated when initially setting this up, as they do not pull from `config.json` and are essentially static.
 
 ## Sideloading Source
 
