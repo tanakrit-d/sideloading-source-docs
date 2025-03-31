@@ -199,7 +199,7 @@ In the example workflow action, I use it with the following arguments:
 `./zsign -f -k ./certificate.p12 -p "$P12_PASSWORD" -m ./profile.mobileprovision ./build/ios/iphoneos/Payload/Runner.app`
 
 > [!IMPORTANT]  
-> As of `v0.7` I don't recommend specifying an `-output` argument  
+> As of `zsign v0.7` I don't recommend specifying an `-output` argument  
 > This is because (at least on MacOS) there is a bug which causes the archiving of the `.ipa` to run endlessly until the device runs out of disk space
 
 ### Option 2: ipasign.cc
