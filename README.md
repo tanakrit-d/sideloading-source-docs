@@ -15,7 +15,7 @@ This repo should contain all the necessary information and files to get you star
 ### Build, Sign, Release, Update Source
 
 Including all of the steps as part of a GitHub workflow action is the most straightforward and integrated solution.  
-I'd recommend looking at the [zsign build.yml](.github/workflows/build-example-zsign.yml) and [ipasign.cc build.yml](.github/workflows/build-example-ipasign.yml) implementations.  
+I'd recommend looking at the [zsign build.yml](.github/workflows/build-zsign.yml) and [ipasign.cc build.yml](.github/workflows/build-ipasign.yml) implementations.  
 In these examples we:
 
 - Decode the `.p12` and `.mobileprovison` base64 encoded GitHub secrets to files
@@ -37,9 +37,11 @@ If you don't have control of a project, or wish to create a 3rd party one, you c
 For the [Apollo with ImprovedCustomAPI](https://github.com/Balackburn/Apollo) and [Mangayomi Source](https://github.com/tanakrit-d/mangayomi-source) projects, I implemented a cron schedule and steps to poll for new releases.  
 The release version data is stored in [.current-release](https://github.com/Balackburn/Apollo/blob/main/.current-release) which it is compared against.
 
+You can see an example here: [check_release.yml](.github/workflows/check_release.yml)
+
 ### Update Source
 
-You can use a Python script ([update_source.py](repo/update_source.py)) which handles the updating of the source file, and then call it from a workflow action ([update_sideloading_source-example.yml](.github/workflows/update_sideloading_source-example.yml)).
+You can use a Python script ([update_source.py](repo/update_source.py)) which handles the updating of the source file, and then call it from a workflow action ([update_source.yml](.github/workflows/update_source.yml)).
 
 It's a good idea to include the `needs:` attribute so that the source will only update if the dependant step executes as expected.  
 A good example of this is in a multi-build workflow which creates a number of builds (such as Android, iOS, Linux).
@@ -185,7 +187,7 @@ If an app is not signed, or improperly signed, AltStore tends to throw an error 
 
 There are two solutions for this:
 
-### zsign
+### Option 1: zsign
 
 Using a revoked/expired `.p12` and `.mobileprovision`from [https://t.me/AppleP12](https://t.me/AppleP12) alongside [zsign](https://github.com/zhlynn/zsign) gives the app a valid signature.
 
@@ -200,7 +202,7 @@ In the example workflow action, I use it with the following arguments:
 > As of `v0.7` I don't recommend specifying an `-output` argument  
 > This is because (at least on MacOS) there is a bug which causes the archiving of the `.ipa` to run endlessly until the device runs out of disk space
 
-### ipasign.cc
+### Option 2: ipasign.cc
 
 Using a revoked/expired `.p12` and `.mobileprovision`from [https://t.me/AppleP12](https://t.me/AppleP12) alongside a signing service such as [https://sign.ipasign.cc/](https://sign.ipasign.cc/) gives the app a valid signature.
 

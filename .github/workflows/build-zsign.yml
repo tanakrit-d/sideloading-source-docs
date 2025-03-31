@@ -75,4 +75,6 @@ jobs:
 
   call-workflow-sideloading:
     needs: build-and-release-ios-ipa
-    uses: ./.github/workflows/update_sideloading_source.yml
+    uses: ./.github/workflows/update_source.yml
+    with:
+      RELEASE_TAG: ${{ github.ref_name }}
