@@ -242,7 +242,8 @@ Download complete: cool-app-signed.ipa
 
 [Mangayomi Source](https://github.com/tanakrit-d/mangayomi-source)
 
-- [x] Release Polling
+- [x] Project Integrated
+- [x] Signing Integrated
 - [x] Source Update
 
 [AnymeX](https://github.com/RyanYuuki/AnymeX)
