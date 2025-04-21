@@ -46,8 +46,17 @@ jobs:
           git add repo/source.json
 
           if git diff --cached --quiet; then
-              echo "No changes detected, skipping commit."
+            echo "No changes detected, skipping commit."
           else
-              git commit -m "update version to ${{ inputs.RELEASE_TAG }}"
-              git push
+            git fetch origin main
+            
+            git checkout -b new-release origin/main
+            git checkout --detach HEAD
+
+            git commit -m "update version to $RELEASE_TAG"
+            
+            git checkout new-release
+            git cherry-pick HEAD@{1}
+            
+            git push origin new-release:main
           fi
